@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  medium: MyString
+  payee_id: MyString
+  amount: 1
+  transaction_date: MyString
+  status: MyString
+  description: MyString
+
+two:
+  medium: MyString
+  payee_id: MyString
+  amount: 1
+  transaction_date: MyString
+  status: MyString
+  description: MyString

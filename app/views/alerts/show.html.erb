@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @alert.type %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @alert.description %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @alert.time %>
+</p>
+
+<p>
+  <strong>Merchant:</strong>
+  <%= @alert.merchant %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @alert.amount %>
+</p>
+
+<%= link_to 'Edit', edit_alert_path(@alert) %> |
+<%= link_to 'Back', alerts_path %>

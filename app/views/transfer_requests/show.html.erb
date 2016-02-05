@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Medium:</strong>
+  <%= @transfer_request.medium %>
+</p>
+
+<p>
+  <strong>Payee:</strong>
+  <%= @transfer_request.payee_id %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @transfer_request.amount %>
+</p>
+
+<p>
+  <strong>Transaction date:</strong>
+  <%= @transfer_request.transaction_date %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @transfer_request.status %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @transfer_request.description %>
+</p>
+
+<%= link_to 'Edit', edit_transfer_request_path(@transfer_request) %> |
+<%= link_to 'Back', transfer_requests_path %>

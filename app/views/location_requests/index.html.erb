@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Location Requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lat</th>
+      <th>Long</th>
+      <th>Radius</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @location_requests.each do |location_request| %>
+      <tr>
+        <td><%= location_request.lat %></td>
+        <td><%= location_request.long %></td>
+        <td><%= location_request.radius %></td>
+        <td><%= link_to 'Show', location_request %></td>
+        <td><%= link_to 'Edit', edit_location_request_path(location_request) %></td>
+        <td><%= link_to 'Destroy', location_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Location request', new_location_request_path %>

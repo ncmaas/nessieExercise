@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @atm.lat %>
+</p>
+
+<p>
+  <strong>Long:</strong>
+  <%= @atm.long %>
+</p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @atm.uid %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @atm.name %>
+</p>
+
+<p>
+  <strong>Languages:</strong>
+  <%= @atm.languages %>
+</p>
+
+<p>
+  <strong>Hours:</strong>
+  <%= @atm.hours %>
+</p>
+
+<p>
+  <strong>Accessibility:</strong>
+  <%= @atm.accessibility %>
+</p>
+
+<p>
+  <strong>Amount left:</strong>
+  <%= @atm.amount_left %>
+</p>
+
+<%= link_to 'Edit', edit_atm_path(@atm) %> |
+<%= link_to 'Back', atms_path %>

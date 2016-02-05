@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  type: 
+  date: MyString
+  status: MyString
+  medium: MyString
+  payer_id: MyString
+  payee_id: MyString
+  amount: 1
+  description: MyString
+
+two:
+  uid: MyString
+  type: 
+  date: MyString
+  status: MyString
+  medium: MyString
+  payer_id: MyString
+  payee_id: MyString
+  amount: 1
+  description: MyString

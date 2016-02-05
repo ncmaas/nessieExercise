@@ -1,0 +1,49 @@
+<%= form_for(@atm) do |f| %>
+  <% if @atm.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@atm.errors.count, "error") %> prohibited this atm from being saved:</h2>
+
+      <ul>
+      <% @atm.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :lat %><br>
+    <%= f.text_field :lat %>
+  </div>
+  <div class="field">
+    <%= f.label :long %><br>
+    <%= f.text_field :long %>
+  </div>
+  <div class="field">
+    <%= f.label :uid %><br>
+    <%= f.text_field :uid %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :languages %><br>
+    <%= f.text_field :languages %>
+  </div>
+  <div class="field">
+    <%= f.label :hours %><br>
+    <%= f.text_field :hours %>
+  </div>
+  <div class="field">
+    <%= f.label :accessibility %><br>
+    <%= f.check_box :accessibility %>
+  </div>
+  <div class="field">
+    <%= f.label :amount_left %><br>
+    <%= f.number_field :amount_left %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

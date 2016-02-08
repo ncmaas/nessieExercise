@@ -1,0 +1,15 @@
+<div id="footer">
+	<div id="userSelect">
+	    <div id="userSelectText">
+	    Simulate user:
+        </div>
+	    <div id ="userSelectInput">
+	    <%= form_for @session, :url => '/changeUser', :html => {:method => :post}, :as => 'user_form' do |f| %>
+ 		<%= f.select :user_id, [['Foxy Loxy', "56241a13de4bf40b17112248"], ['Frankie Frog', "56241a13de4bf40b17112249"], ['Franny Robinson', "56241a13de4bf40b1711224a"]], :selected => session[:current_user] %>
+        <div class="actions">
+    		<%= f.submit "Change Simulated User" %>
+		</div>
+		<% end %>
+        </div>
+	</div>
+</div>

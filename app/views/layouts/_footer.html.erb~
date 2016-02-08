@@ -1,0 +1,9 @@
+<div id="footer">
+	<div id="userSelect">
+	     <select>
+              <option value="56241a13de4bf40b17112248">Foxy Loxy</option>
+              <option value="56241a13de4bf40b17112249">Frankie Frog</option>
+              <option value="56241a13de4bf40b1711224a">Franny Robinson</option>
+        </select> 
+	</div>
+</div>

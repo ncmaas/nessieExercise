@@ -1,0 +1,5 @@
+class Session
+  extend ActiveModel::Naming
+  include ActiveModel::AttributeMethods
+
+end

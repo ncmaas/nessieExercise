@@ -19,6 +19,12 @@ class AccountsController < ApplicationController
 
   # GET /accounts/1/edit
   def edit
+    @account = Account.new
+    user_id=session[:current_user]
+    url = "http://api.reimaginebanking.com/customers/" + user_id + "/accounts?key=" +  Rails.application.secrets[:nessie_api_key]
+    response = open(url).read
+    result = JSON.parse(response)
+    @account.json_result = result
   end
 
   # POST /accounts
@@ -69,6 +75,6 @@ class AccountsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def account_params
-      params.require(:account).permit(:uid, :type, :nickname, :rewards, :balance, :account_number, :customer_id)
+      params.require(:account).permit(:json_result, :uid, :the_type, :nickname, :rewards, :balance, :account_number, :customer_id)
     end
 end

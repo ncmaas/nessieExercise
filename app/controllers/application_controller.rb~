@@ -4,9 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :set_session
   before_action :set_session
-  include SessionHelper
-  require 'open-uri'
-  require 'json'
+  include SessionsHelper
 
   
   def set_session

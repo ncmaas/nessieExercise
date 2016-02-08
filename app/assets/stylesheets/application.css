@@ -13,3 +13,89 @@
  *= require_tree .
  *= require_self
  */
+
+html, body {
+	font-family: "ProxReg";
+	margin:0;
+	padding:0;
+}
+
+.menuItem a:visited, .menuItem a:hover, .menuItem a:active, .menuItem a:link { 
+	color: #F7F7F7;
+	background-color: #004977;
+	text-decoration: none;    
+	}
+
+#header {
+	border-radius: 0px;
+	background-color: #004977;
+	border-color: #004977;
+	min-height: 100px;
+	margin-bottom: 0px;
+	color: #F7F7F7;
+	font-size: 15px;
+	text-align:center;
+	line-height: 100%;
+}
+
+#footer {
+    background-color: #EEE;
+    border-top: 1px solid #DDD;
+    color: #666;
+    padding: 0px 0.5em;
+    text-align: center;
+}
+
+#userSelect{
+    display: inline-block;
+    line-height: 50px
+}
+
+#userSelectText{
+	vertical-align: middle;
+	float:left;
+	text-align: right;
+}
+
+#userSelectInput{
+	vertical-align: middle;
+	float:right;
+	text-align:left;
+}
+
+#content{
+	max-width:960px;
+	text-align: center;
+}
+
+#logo{
+	float:left;
+}
+
+#navbar{
+	text-align: center;
+	display: inline-block;
+	margin-left:10%;
+	margin-right:10%;
+	max-width: 960px;
+	margin-top:35px;
+}
+
+.menuItem{
+	float:left;
+	width:100px;
+}
+
+.nav-left{
+	width:20%;
+	margin-right:100px;
+}
+
+.nav-right{
+	width:80%;
+	margin-left: 100px
+}
+
+.header-logo{
+	width:75px;
+}

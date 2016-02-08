@@ -2,7 +2,7 @@ class CreateTransfers < ActiveRecord::Migration
   def change
     create_table :transfers do |t|
       t.string :uid
-      t.string :type
+      t.string :the_type
       t.string :date
       t.string :status
       t.string :medium

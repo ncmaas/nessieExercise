@@ -10,6 +10,9 @@ class AtmsController < ApplicationController
   # GET /atms/1
   # GET /atms/1.json
   def show
+
+
+
   end
 
   # GET /atms/new
@@ -19,6 +22,21 @@ class AtmsController < ApplicationController
 
   # GET /atms/1/edit
   def edit
+    address = @atm.hours 
+    url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + Rails.application.secrets[:google_api_key] 
+    response = open(url).read 
+    result = JSON.parse(response) 
+    if result["results"][0]["geometry"]["bounds"] 
+      lat = result["results"][0]["geometry"]["bounds"]["northeast"]["lat"] 
+      lng = result["results"][0]["geometry"]["bounds"]["northeast"]["lng"] 
+    else 
+      lat = result["results"][0]["geometry"]["location"]["lat"]
+      lng = result["results"][0]["geometry"]["location"]["lng"]
+    end
+    c1_url = "http://api.reimaginebanking.com/atms?lat=" + lat.to_s + "&lng=" + lng.to_s + "&rad=50&key=" + Rails.application.secrets[:nessie_api_key] 
+    c1_response = open(c1_url).read 
+    c1_result = JSON.parse(c1_response) 
+    @atm.name = c1_result["data"].length
   end
 
   # POST /atms
@@ -42,8 +60,7 @@ class AtmsController < ApplicationController
   def update
     respond_to do |format|
       if @atm.update(atm_params)
-        format.html { redirect_to @atm, notice: 'Atm was successfully updated.' }
-        format.json { render :show, status: :ok, location: @atm }
+        format.html { redirect_to edit_atm_path(@atm)}
       else
         format.html { render :edit }
         format.json { render json: @atm.errors, status: :unprocessable_entity }

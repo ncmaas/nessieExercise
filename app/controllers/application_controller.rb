@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   include SessionHelper
   require 'open-uri'
   require 'json'
+  require 'net/http'
 
   
   def set_session

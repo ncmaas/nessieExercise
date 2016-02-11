@@ -1,3 +1,37 @@
+<% if @transfers_array.length > 0 %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Payee ID</th>
+      <th>Amount</th>
+      <th>Transaction Date</th>
+      <th>Status</th>     
+      <th>Description</th>
+      <th>Payer ID</th>      
+      </tr>
+  </thead>
+  <tbody>
+<% for n in 0..(@transfers_array[0].length - 1) do %>
+  <tr>
+  <td><%= @transfers_array[0][n]["payee_id"] %></td>
+  <td><%= @transfers_array[0][n]["amount"].to_s %></td>
+  <td><%= @transfers_array[0][n]["transaction_date"] %></td>
+  <td><%= @transfers_array[0][n]["status"] %></td>
+  <td><%= @transfers_array[0][n]["description"] %></td>
+  <td><%= @transfers_array[0][n]["payer_id"] %></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<% else %>
+
+<p>You have no transfers</p>
+
+<% end %>
+
+
 <%= form_for(@transfer) do |f| %>
   <% if @transfer.errors.any? %>
     <div id="error_explanation">
@@ -11,33 +45,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :uid %><br>
-    <%= f.text_field :uid %>
-  </div>
-  <div class="field">
-    <%= f.label :the_type %><br>
-    <%= f.text_field :the_type %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.text_field :date %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
+
   </div>
   <div class="field">
     <%= f.label :medium %><br>
-    <%= f.text_field :medium %>
+    <%= f.select :medium, ["balance","rewards"] %>
   </div>
+
   <div class="field">
     <%= f.label :payer_id %><br>
-    <%= f.text_field :payer_id %>
+    <%= f.select :payer_id, @select_account %>
   </div>
   <div class="field">
     <%= f.label :payee_id %><br>
-    <%= f.text_field :payee_id %>
+    <%= f.select :payee_id, @all_accts %>
   </div>
   <div class="field">
     <%= f.label :amount %><br>
@@ -48,6 +69,6 @@
     <%= f.text_field :description %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create Transfer" %>
   </div>
 <% end %>

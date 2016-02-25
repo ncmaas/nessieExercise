@@ -11,6 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+$('#change_user_button').hide();
+$('#user_form_user_id').change(function(){
+	$('#change_user_button').click();
+});
+});

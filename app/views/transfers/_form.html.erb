@@ -9,19 +9,21 @@
       <th>Status</th>     
       <th>Description</th>
       <th>Payer ID</th>      
-      </tr>
+    </tr>
   </thead>
   <tbody>
-<% for n in 0..(@transfers_array[0].length - 1) do %>
-  <tr>
-  <td><%= @transfers_array[0][n]["payee_id"] %></td>
-  <td><%= @transfers_array[0][n]["amount"].to_s %></td>
-  <td><%= @transfers_array[0][n]["transaction_date"] %></td>
-  <td><%= @transfers_array[0][n]["status"] %></td>
-  <td><%= @transfers_array[0][n]["description"] %></td>
-  <td><%= @transfers_array[0][n]["payer_id"] %></td>
-  </tr>
-  <% end %>
+    <% @transfers_array.each do |g| %>
+      <% g.each do |h| %>
+        <tr>
+          <td><%= h["payee_id"] %></td>
+          <td><%= h["amount"].to_s %></td>
+          <td><%= h["transaction_date"] %></td>
+          <td><%= h["status"] %></td>
+          <td><%= h["description"] %></td>
+          <td><%= h["payer_id"] %></td>
+        </tr>
+      <% end %>
+    <% end %>
   </tbody>
 </table>
 

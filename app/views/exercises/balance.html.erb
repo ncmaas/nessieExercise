@@ -1,0 +1,18 @@
+<% @accounts.each do |a| %>
+	<p>Your <%= a["the_type"] %> account,
+	with name "<%= a["nickname"] %>" has a
+	balance of <b> <%= a["balance"] %></b>.
+	</p>
+
+	<% if a["purchases"].count > 0 %>
+	<p>All of your purchases on this account: </p>
+	<% a["purchases"].each do |p| %>
+		<li>
+		$<%=p["amount"]%> at <%=p["merchant_name"]%> on <%=p["purchase_date"]%>.
+		</li>
+	<% end %>
+	<% else %>
+	<p>No purchases on this account.</p>
+	<% end %>
+
+<% end %>

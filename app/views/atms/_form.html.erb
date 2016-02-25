@@ -1,5 +1,5 @@
 
-<div> <p>There are <%= @atm.name %> Capital One ATMs within 50 miles of your address (<%= @atm.hours %>)!</p></div>
+<div> <p>There are <%= @count %> Capital One ATMs within 50 miles of your address (<%= @address %>)!</p></div>
 
 
 
@@ -19,7 +19,7 @@
   <% end %>
   <div class="field">
     <%= f.label :Address %><br>
-    <%= f.text_field :hours %>
+    <%= f.text_field :search_address %>
   </div>
   <div class="actions">
     <%= f.submit "Update Address" %>

@@ -1,0 +1,6 @@
+<% for n in (0..@result.length - 1) do %>
+ <li>Your <%= @result[n]["the_type"] %> account,
+  with name "<%= @result[n]["nickname"] %>" has a
+  balance of <b> <%=@result[n]["balance"] %></b>.
+ <li/>
+<% end %>

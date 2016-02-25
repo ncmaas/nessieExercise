@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  resources :transfer_requests
-  resources :transfers
-  resources :accounts
-  resources :location_requests
-  resources :atms
-  resources :alerts
+  #resources :transfer_requests
+  #resources :transfers
+  #resources :accounts
+  #resources :location_requests
+  #resources :atms
+  #resources :alerts
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -15,6 +15,13 @@ Rails.application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
 
   post '/changeUser' => 'session#changeUser'
+
+  get '/countATMs' => 'exercises#count'
+  post '/countATMs' => 'session#changeAddress'
+  get '/transfers' => 'exercises#transfer'
+  get '/balances' => 'exercises#balance'
+  post '/transfers' => 'exercises#postTransfer'
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

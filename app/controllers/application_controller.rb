@@ -13,5 +13,12 @@ class ApplicationController < ActionController::Base
   def set_session
     @session = Session.new
   end
+
+  def set_account
+    unless session[:current_user]
+      session[:current_user] = "56c66be5a73e49274150734a"
+    end
+    @user_id=session[:current_user]
+  end
   
 end

@@ -1,0 +1,9 @@
+
+<div> <p>There are <%= @count %> Capital One ATMs within 50 miles of your address (<%= @address %>)!</p></div>
+
+<br />
+<br />
+<%= form_tag "/countATMs" do %>
+  <%= text_field_tag "search_address", @address %>
+  <%= submit_tag "Update Address" %>
+<% end %>

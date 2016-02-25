@@ -1,0 +1,51 @@
+<% if @transfers_array.length > 0 %>
+<table>
+  <thead>
+    <tr>
+      <th>Paid To</th>
+      <th>Amount</th>
+      <th>Transaction Date</th>
+      <th>Status</th>     
+      <th>Description</th>
+      <th>Paid From</th>      
+    </tr>
+  </thead>
+  <tbody>
+    <% @transfers_array.each do |g| %>
+      <% g.each do |h| %>
+        <tr>
+          <td><%= @acct_hash[h["payee_id"]] %></td>
+          <td><%= h["amount"].to_s %></td>
+          <td><%= h["transaction_date"] %></td>
+          <td><%= h["status"] %></td>
+          <td><%= h["description"] %></td>
+          <td><%= @acct_hash[h["payer_id"]] %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<% else %>
+
+<p>You have no transfers</p>
+
+<% end %>
+
+<%= form_tag "/transfers" do %>
+
+<br />
+<%= label_tag 'Method' %>
+<%= select_tag "medium", options_for_select(["Balance","Rewards"]) %>
+<br />
+<%= label_tag 'Payer Account'%>
+<%= select_tag "payer_id", options_for_select(@select_account) %> <br />
+<%= label_tag "Payee Account" %>
+<%= select_tag "payee_id", options_for_select(@all_accts) %> <br />
+<%= label_tag "Amount to Transfer" %>
+<%= number_field_tag "amount" %> <br />
+<%= label_tag "Description" %>
+<%= text_field_tag "description" %><br />
+<%= submit_tag "Create Transfer" %> <br />
+
+<% end %>

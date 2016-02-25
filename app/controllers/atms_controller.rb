@@ -59,12 +59,7 @@ class AtmsController < ApplicationController
   # PATCH/PUT /atms/1.json
   def update
     respond_to do |format|
-      if @atm.update(atm_params)
         format.html { redirect_to edit_atm_path(@atm)}
-      else
-        format.html { render :edit }
-        format.json { render json: @atm.errors, status: :unprocessable_entity }
-      end
     end
   end
 

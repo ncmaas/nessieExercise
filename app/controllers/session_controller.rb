@@ -6,6 +6,11 @@ class SessionController < ApplicationController
     session[:current_user] = params[:user_form][:user_id]
     redirect_to request.referrer
   end
+
+  def changeAddress
+    session[:atm_address] = params[:search_address]
+    redirect_to request.referrer
+  end
   
   
 

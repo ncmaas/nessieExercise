@@ -65,24 +65,22 @@ class TransfersController < ApplicationController
   # PATCH/PUT /transfers/1.json
   def update
     uri = URI("http://api.reimaginebanking.com/accounts/" + params[:transfer][:payer_id] + "/transfers?key=" + Rails.application.secrets[:nessie_api_key])
-    req = Net::HTTP::Post.new(uri)
-    those_params = {'medium' => params[:transfer][:medium], 'payee_id' => params[:transfer][:payee_id], 'amount' => params[:transfer][:amount], 'transaction_date' => Time.new.to_s, 'description' => params[:transfer][:description]}
+    #req = Net::HTTP::Post.new(uri)
+    those_params = {'medium' => params[:transfer][:medium], 'payee_id' => params[:transfer][:payee_id], 'amount' => params[:transfer][:amount].to_i, 'transaction_date' => Date.today.to_s, 'description' => params[:transfer][:description]}
+    
+    #req.body=those_params.to_json
+    #res = Net::HTTP.start(uri.hostname,uri.port) do |http|
+    #  stuff=http.request(req)
+    #  binding.pry
+    #end
 
-    req.body=those_params.to_json
-    res = Net::HTTP.start(uri.hostname,uri.port) do |http|
-      http.request(req)
-    end
-
-    binding.pry
-    resp = Net::HTTP.post_form(init_transfer_url, initheader = {'Content-Type' =>'application/json'}, those_params.to_json)
+    #binding.pry
+    http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Post.new(uri.request_uri, initheader = {'Content-Type' =>'application/json'})
+    request.body=those_params.to_json
+    resp = http.request(request)
     respond_to do |format|
-      if @transfer.update(transfer_params)
-        format.html { redirect_to @transfer, notice: 'Transfer was successfully updated.' }
-        format.json { render :show, status: :ok, location: @transfer }
-      else
-        format.html { render :edit }
-        format.json { render json: @transfer.errors, status: :unprocessable_entity }
-      end
+        format.html { redirect_to edit_transfer_path(@transfer)}
     end
   end
 

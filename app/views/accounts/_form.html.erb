@@ -1,6 +1,0 @@
-<% for n in (0..@account.json_result.length - 1) do %>
- <li>Your <%= @account.json_result[n]["the_type"] %> account,
-  with name "<%= @account.json_result[n]["nickname"] %>" has a
-  balance of <b> <%=@account.json_result[n]["balance"] %></b>.
- <li/>
-<% end %>

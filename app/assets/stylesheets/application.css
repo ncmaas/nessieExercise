@@ -67,6 +67,8 @@ html, body {
 	max-width:960px;
 	text-align: center;
 	padding: 20px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #logo{
@@ -99,4 +101,9 @@ html, body {
 
 .header-logo{
 	width:75px;
+}
+
+#transfersTable{
+	margin-left:auto; 
+    margin-right:auto;
 }

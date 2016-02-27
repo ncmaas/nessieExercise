@@ -1,5 +1,9 @@
+<div id="transfersHeader">
+<h1>All transfers you've been involved with!</h1>
+</div>
+<div id="transfersTable">
 <% if @transfers_array.length > 0 %>
-<table>
+<table id="transfersTable">
   <thead>
     <tr>
       <th>Paid To</th>
@@ -31,12 +35,17 @@
 <p>You have no transfers</p>
 
 <% end %>
+</div>
+
+<div id="transfersHeader">
+<h1>Create a new transfer!</h1>
+</div>
 
 <%= form_tag "/transfers" do %>
 
 <br />
 <%= label_tag 'Method' %>
-<%= select_tag "medium", options_for_select(["Balance","Rewards"]) %>
+<%= select_tag "medium", options_for_select([["Balance","balance"],["Rewards","rewards"]]) %>
 <br />
 <%= label_tag 'Payer Account'%>
 <%= select_tag "payer_id", options_for_select(@select_account) %> <br />

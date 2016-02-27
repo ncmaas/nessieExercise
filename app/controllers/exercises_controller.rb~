@@ -54,6 +54,7 @@ class ExercisesController < ApplicationController
     request = Net::HTTP::Post.new(uri.request_uri, initheader = {'Content-Type' =>'application/json'})
     request.body=those_params.to_json
     resp = http.request(request)
+
     respond_to do |format|
       format.html { redirect_to '/transfers'}
     end

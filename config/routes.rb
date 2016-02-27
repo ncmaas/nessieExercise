@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
-  #resources :transfer_requests
-  #resources :transfers
-  #resources :accounts
-  #resources :location_requests
-  #resources :atms
-  #resources :alerts
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -13,6 +8,8 @@ Rails.application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+
+  root 'exercises#count'
 
   post '/changeUser' => 'session#changeUser'
 
